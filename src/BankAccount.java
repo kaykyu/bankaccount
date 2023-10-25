@@ -60,7 +60,7 @@ public class BankAccount {
         if ((amount < 0) || this.isClosed) {
             System.out.println("IllegalArgumentException");
         } else {
-            this.balance =+ amount;
+            this.balance += amount;
             LocalDateTime now = LocalDateTime.now();
             String dateTime = now.format(formatter);
             this.transactions.add("deposited $" + amount + " at " + dateTime + ", Balance: " + this.balance);
@@ -71,7 +71,7 @@ public class BankAccount {
         if ((amount > this.balance) || this.isClosed) {
             System.out.println("IllegalArgumentException");           
         } else {
-            this.balance =- amount;
+            this.balance -= amount;
             LocalDateTime now = LocalDateTime.now();
             String dateTime = now.format(formatter);
             this.transactions.add("withdrew $ " + amount + " at " + dateTime + ", Balance: " + this.balance);
