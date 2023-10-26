@@ -63,7 +63,7 @@ public class BankAccount {
             this.balance += amount;
             LocalDateTime now = LocalDateTime.now();
             String dateTime = now.format(formatter);
-            this.transactions.add("deposited $" + amount + " at " + dateTime + ", Balance: " + this.balance);
+            this.transactions.add(String.format("deposited $ %.2f at %s, Balance: %.2f", amount, dateTime, this.balance));
         }
     }
 
@@ -74,7 +74,7 @@ public class BankAccount {
             this.balance -= amount;
             LocalDateTime now = LocalDateTime.now();
             String dateTime = now.format(formatter);
-            this.transactions.add("withdrew $ " + amount + " at " + dateTime + ", Balance: " + this.balance);
+            this.transactions.add(String.format("winthdrew $ %.2f at %s, Balance: %.2f", amount, dateTime, this.balance));
         }
     }
 
@@ -87,15 +87,15 @@ public class BankAccount {
     public static void main(String[] args) {
         
         // test code
-        // BankAccount fred = new BankAccount("fred");
+        BankAccount fred = new BankAccount("fred");
         // BankAccount sam = new BankAccount("sam", 100);
         // FixedDepositAccount tom = new FixedDepositAccount("tom", 300);
         // FixedDepositAccount mary = new FixedDepositAccount("mary", 1000);
         // FixedDepositAccount sue = new FixedDepositAccount("sue", 500, 5, 12);
-        // fred.deposit(800);
-        // fred.deposit(1000);
-        // fred.withdraw(500);
-        // System.out.println(fred.transactions);
+        fred.deposit(800);
+        fred.deposit(1000);
+        fred.withdraw(500);
+        System.out.println(fred.transactions);
         // System.out.println(fred.transactions);
         // sam.withdraw(50);
         // tom.getBalance();
